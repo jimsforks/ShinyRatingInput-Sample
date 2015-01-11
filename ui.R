@@ -21,7 +21,7 @@ shinyUI(fluidPage(
   h3("Using a Rating Input Controls in Shiny with the Bootstrap Rating Plugin and ShinyRatingInput"),
   
   tabsetPanel(
-  tabPanel("",
+  tabPanel("Samples",
   div(
     h3("Default rating"),
     ratingInput("rating1", label="Select Rating"),   htmlOutput("rating1"),
