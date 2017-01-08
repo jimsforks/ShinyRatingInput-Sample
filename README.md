@@ -1,5 +1,7 @@
 # ShinyRatingInput-Sample
 
+Author: Stefan Wilhelm
+
 Example shiny app built on the [ShinyRatingInput](https://github.com/stefanwilhelm/ShinyRatingInput) package. This package is wrapping up the [bootstrap-rating](https://github.com/dreyescat/bootstrap-rating/) JavaScript library for the use with Shiny. A live demo is running at [http://stefanwilhelm.shinyapps.io/ShinyRatingInput-Sample/].
 
 Credits

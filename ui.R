@@ -1,7 +1,10 @@
 library(shiny)
+library(markdown)
+library(shinythemes)
 library(ShinyRatingInput)
 
-shinyUI(fluidPage(
+shinyUI(fluidPage(theme=shinytheme("slate"),
+  shinythemes::themeSelector(),  # <--- Add this somewhere in the UI
   
   tags$head(
     # add some custom CSS
@@ -24,7 +27,7 @@ shinyUI(fluidPage(
   tabPanel("Samples",
   div(
     h3("Default rating"),
-    ratingInput("rating1", label="Select Rating"),   htmlOutput("rating1"),
+    ratingInput("rating1", label="Select Rating", includeBootstrapCSS = TRUE),   htmlOutput("rating1"),
     
     h3("Half rating"),
     ratingInput("rating2", label="Select Rating", dataFractions=2), htmlOutput("rating2"),
@@ -66,18 +69,15 @@ shinyUI(fluidPage(
     ratingInput("rating14", label="Select Rating", dataFilled="fa fa-star fa-3x orange", dataEmpty="fa fa-star-o fa-3x orange", dataFractions="3") ,
     
     h3("Custom CSS icons"),
-    ratingInput("rating14", label="Select Rating", dataFilled="symbol symbol-filled", dataEmpty="symbol symbol-empty")
+    ratingInput("rating15", label="Select Rating", dataFilled="symbol symbol-filled", dataEmpty="symbol symbol-empty"),
+    
+    h3("Rating input created by uiOutput()/renderUI()"),
+    uiOutput("movieRating")
   )
   ),
   
   tabPanel("About",
-    p("This example shows how to use the ",
-    a(href="https://github.com/stefanwilhelm/ShinyRatingInput", "ShinyRatingInput package"),
-    " to build rating input controls in Shiny apps.",
-    "ShinyRatingInput uses the ",
-    a(href="https://github.com/dreyescat/bootstrap-rating", "https://github.com/dreyescat/bootstrap-rating"),
-    "JavaScript library, so the credits should go there."
-    )
+    includeMarkdown("about.md")
   )
   
   ),
